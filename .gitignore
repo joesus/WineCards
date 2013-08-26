@@ -1,0 +1,31 @@
+# Additional ignored files referenced in global ~/.gitignore 
+#Check out https://help.github.com/articles/ignoring_files for details
+# List generated with help from github.com/github/gitignore
+
+
+/db/*.sqlite3-journal
+doc/
+*.swp
+*~
+.project
+.idea
+.secret 
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+.rvmrc
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
+
