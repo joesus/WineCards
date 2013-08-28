@@ -14,15 +14,26 @@
 
 class User < ActiveRecord::Base
 
-	before_save { self.email = email.downcase }
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+# Copied Standard Regex for Standard Email
 	before_create :create_remember_token
 	before_save { email.downcase! }
-
-	attr_accessible :name, :email, :password, :password_confirmation
-	validates(:name, presence: true)
-	validates(:password, presence: true)
-	validates(:email, presence: true)
+#	Same as: before_save { self.email = email.downcase }
+# Necessary b/c db is case sensitive
+# These before_action hooks are callbacks that trigger logic before or
+# after an alteration of the object state.
+  attr_accessible :name, :email, :password, :password_confirmation
+	
+	validates :name, presence: true, length: { maximum: 50 }
+# Requires a name, with max length 50
+	validates :password, presence: true, length: { minimum: 6 }
+# Requires a password, maybe presence not necessary b/c of has_secure_password
+	validates :email, presence: true,
+						format: { with: VALID_EMAIL_REGEX },
+						uniqueness: { case_sensitive: false }
+# Not sure why uniqeness here. 
 	has_secure_password
+# adding has_secure_password gives us the authenticate methods. 
 	
 
 def User.new_remember_token
