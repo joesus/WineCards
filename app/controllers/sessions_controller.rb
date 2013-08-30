@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
 # Compare the value of the email you just saved to the value of the
 # same that undergoes the authenticate method (which i don't yet comprehend)
 			sign_in user
-			redirect_to user
+			redirect_back_or user
+# redirect_back_or is held in sessions_helper
 		else
 			flash.now[:error] = 'Invalid email/password combination'
 # The .now helps it only persist for one http request.
