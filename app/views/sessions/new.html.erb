@@ -1,0 +1,19 @@
+<% provide(:title, "Sign in") %>
+<h1>Sign in</h1>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<%= form_for(:session, url: sessions_path) do |f| %>
+<!-- since sessions_path is the route for create a new sessions, it will know to use post -->
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+
+			<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+		<% end %>
+<!-- Submitting the form results in a params hash where params[:session][:email] and params[:session][:password] correspond to their fields -->
+		<p>New user? <%= link_to "Sign up now!", signup_path, class: 'nolinkcolor' %></p>
+	</div>
+</div>
