@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 # Copied Standard Regex for Standard Email
 	before_create :create_remember_token
-	before_save { email.downcase! }
+	before_save { self.email = email.downcase }
 #	Same as: before_save { self.email = email.downcase }
 # Necessary b/c db is case sensitive
 # These before_action hooks are callbacks that trigger logic before or

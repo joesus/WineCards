@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+    @users = User.paginate(page: params[:page])
+	end
+	
 	def show
 		@user = User.find(params[:id])
 	end
@@ -15,14 +19,17 @@ class UsersController < ApplicationController
 # hash of hashes for the user object. Eq to saying 
 # @user = User.new(name: "joe", email: "joe@"... etc.) but it was insecure 
 # so instead now we define the params we want to be accessible and required.
-		if @user.save
+		if @user.save			
 # Handles a successful save
+			sign_in @user
 			flash[:success] = "Welcome to Winecards!"
 			redirect_to @user
 		else
 			render 'new'
 		end
 	end
+
+private 
 
 	def user_params
 		params.require(:user).permit(:name, :email, :password,
@@ -31,7 +38,4 @@ class UsersController < ApplicationController
 # Defining params like this keeps people from passing malicious content
 # into your site.
 
-	def index
-    @users = User.paginate(page: params[:page])
-  end
 end

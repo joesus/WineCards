@@ -7,9 +7,7 @@
 <!-- We use a shared partial where we define the error messages 
 		 and how we want them to be formatted. -->
 
-<!-- Rails knows that @user is for the User model, also knows
-		 that b/c @user is a new user object, the form should use
-		 the post method -->
+<!-- Rails knows that @user is for the User model, also infers that the action of the form should be to POST to the URL/users and since the controller knows that /users is for create a user... -->
 
 			<%= f.label :name %>
 			<%= f.text_field :name %>

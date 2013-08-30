@@ -1,9 +1,11 @@
 <div class="jumbotron">
 	<div class="container">
+		<div class="row col-md-4 col-md-offset-4">
 		<h1> Howdy Oenophile!</h1>
 		<p> This flash card app will get you learning wine in no time, 
-			Sign Up or Sign In to get started!
+			Sign Up or <%= link_to "Sign In", signin_path %> to get started!
 		</p>
 		<p><%= link_to "Sign Up", signup_path, class: "btn btn-primary btn-lg" %></p>
+		</div>
 	</div>
 </div>
