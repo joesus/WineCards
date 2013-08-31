@@ -4962,11 +4962,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-radius: 4px;
 }
 
-.pagination > li {
+.pagination > ul > li {
   display: inline;
 }
 
-.pagination > li > a,
+.pagination > ul > li > a,
 .pagination > li > span {
   position: relative;
   float: left;
