@@ -4,6 +4,17 @@ describe "WinePages" do
   
   subject { page }
 
+  describe "adding a wine" do
+    
+    describe "when not signed in" do
+      
+    end
+    
+    describe "when signed in" do
+      
+    end
+  end
+
   describe "index" do
   	let(:user) { FactoryGirl.create(:user) }
   	before(:each) do

@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 # Necessary b/c db is case sensitive
 # These before_action hooks are callbacks that trigger logic before or
 # after an alteration of the object state.
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :admin
 	
 	validates :name, presence: true, length: { maximum: 50 }
 # Requires a name, with max length 50

@@ -35,6 +35,14 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	def signed_in_user
+		unless signed_in?
+			store_location
+			redirect_to signin_url, notice: "Please sign in." unless signed_in?
+		end
+	end
+# Here notice: is short for flash[:notice] = "Please..."
+
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)
@@ -50,12 +58,7 @@ module SessionsHelper
 # Storage mechanism is the session facility provided by rails,
 # automatically expires upon browser close.
 # This puts the requested URL in the session variable under the key :return_to
-	end
-
-	def admin?
-		!current_user.admin?
-	end
-	
+	end	
 end
 
 

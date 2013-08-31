@@ -66,14 +66,6 @@ private
 
 	# Before filters
 
-	def signed_in_user
-		unless signed_in?
-			store_location
-			redirect_to signin_url, notice: "Please sign in." unless signed_in?
-		end
-	end
-# Here notice: is short for flash[:notice] = "Please..."
-
 	def correct_user
 		@user = User.find(params[:id])
 		redirect_to(root_url) unless current_user?(@user)
