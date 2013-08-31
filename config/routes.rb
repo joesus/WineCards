@@ -1,6 +1,7 @@
 WineCards::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :wines
   # because there's no reason to show or update them. 
 
   root 'static_pages#home'
@@ -10,7 +11,9 @@ WineCards::Application.routes.draw do
   match '/help',         to: 'static_pages#help',       via: 'get'
   match '/contact',      to: 'static_pages#contact',    via: 'get'
   match '/about',        to: 'static_pages#about',      via: 'get'
-
+  match '/varietal',     to: 'wine_pages#grape',        via: 'get'
+  match '/geographical', to: 'wine_pages#place',        via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
