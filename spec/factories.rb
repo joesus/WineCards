@@ -1,18 +1,22 @@
 FactoryGirl.define do
 	factory :user do
-		name			"Joe S"
-		email			"joe@example.com"
-		password	"foobar"
+		sequence(:name) 		{ |n| "Person #{n}"}
+		sequence(:email)		{ |n| "person_#{n}@example.com"}
+		password "foobar"
 		password_confirmation "foobar"
+		
+		factory :admin do
+			admin true
+		end
 	end
 
-	factory :wine do
-		varietal		"grape"
-		country			"Wineland"
-		vintage			2000
-		description "tasty"
-		price				{ 10 + rand(100) }
-	end
+	# factory :wine do
+	# 	varietal		"grape"
+	# 	country			"Wineland"
+	# 	vintage			2000
+	# 	description "tasty"
+	# 	price				{ 10 + rand(100) }
+	# end
 end
 
 # By passing :user to the factory we tell the factory that the subsequent

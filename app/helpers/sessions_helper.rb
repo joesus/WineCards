@@ -51,6 +51,11 @@ module SessionsHelper
 # automatically expires upon browser close.
 # This puts the requested URL in the session variable under the key :return_to
 	end
+
+	def admin?
+		!current_user.admin?
+	end
+	
 end
 
 
