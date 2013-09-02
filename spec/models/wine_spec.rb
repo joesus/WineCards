@@ -32,6 +32,8 @@ describe Wine do
  	it { should respond_to(:description) }
  	it { should respond_to(:price) }
 
+ 	it { should be_valid }
+ 	
 	describe "when varietal is not present" do
 		before { @wine.varietal = " " }
 		it { should_not be_valid }

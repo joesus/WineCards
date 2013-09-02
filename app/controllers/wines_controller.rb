@@ -9,6 +9,10 @@ class WinesController < ApplicationController
 		@wine = Wine.find(params[:id])
 	end
 
+	def new
+		@wine = Wine.new
+	end
+
 	def create
 		@wine = Wine.new(wine_params)
 		if @wine.save
@@ -24,7 +28,7 @@ class WinesController < ApplicationController
 private
 
 	def wine_params
-		params.require(:wine).permit(:varietal, :country, :vintage,
+		params.require(:wine).permit(:name, :varietal, :country, :vintage,
 																 :description, :price)
 	end
 

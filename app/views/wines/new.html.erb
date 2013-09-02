@@ -2,5 +2,31 @@
 <div class="row">
 	<div class="col-md-4 col-md-4-offset">
 		<h1>Add a Wine</h1>
+
+		<%= form_for(@wine) do |f| %>
+
+		<%= render 'wines/errors' %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+
+			<%= f.label :varietal %>
+			<%= f.text_field :varietal %>
+
+			<%= f.label :country %>
+			<%= f.text_field :country %>
+
+			<%= f.label :vintage %>
+			<%= f.text_field :vintage %>
+
+			<%= f.label :description %>
+			<%= f.text_field :description %>
+
+			<%= f.label :price %>
+			<%= f.text_field :price %>
+
+			<%= f.submit "Add Wine", class: "btn btn-large btn-primary" %>
+
+			<% end %>
 	</div>
 </div>
