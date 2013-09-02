@@ -8,7 +8,7 @@ describe "WinePages" do
     let(:wine) { FactoryGirl.create(:wine) }
     before { visit wine_path(wine) }
 
-    it { should have_title(wine.name) }
+    it { should have_title(full_title(wine.name)) }
     it { should have_content(wine.varietal) }
     it { should have_content(wine.price) }
     it { should have_content("Tasting Notes") }
