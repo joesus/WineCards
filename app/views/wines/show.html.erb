@@ -1,0 +1,32 @@
+<% provide(:title, @wine.name) %>
+<div class="panel panel-default">  
+	<div class="panel-heading"><h1><%= @wine.name %> - $<%= @wine.price %></h1></div>
+	  <div class="panel-body">
+	  	<table class="table table-hover">
+	  		<tbody>
+	  			<tr>
+	  				<td>Varietal</td>
+	  				<td><%= @wine.varietal %></td>
+	  			</tr>
+	  			<tr>
+	  				<td>Country</td>
+	  				<td><%= @wine.country %></td>
+	  			</tr>
+	  			<tr>
+	  				<td>Vintage</td>
+	  				<td><%= @wine.vintage %></td>
+	  			</tr>
+	  			<tr>
+	  				<td>Description</td>
+	  				<td><%= @wine.description %></td>
+	  			</tr>
+	  			<tr>
+	  				<td>Tasting Notes</td>
+	  			</tr>
+	  			<tr>
+	  				<td>INSERT THE ERB FOR THE COMMENTS if any? HERE</td>
+	  			</tr>
+	  		</tbody>
+	  	</table>
+ 		</div>
+</div>
