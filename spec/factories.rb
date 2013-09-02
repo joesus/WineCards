@@ -9,17 +9,16 @@ FactoryGirl.define do
 			admin true
 		end
 	end
+
+	factory :wine do
+		sequence(:name)			{ |n| "Mister No. #{n}'s Wine"}
+	  sequence(:varietal) { |n| "Grape #{n}"}
+		sequence(:country)	{ |n| "#{n}-Landia"}
+		vintage			{ 2000 + rand(10) }
+		description "tasty"
+		price				{ 10 + rand(100) }
+	end
 end
-
-	# factory :wine do
-	#   sequence(:grape) { |n| "Grape #{n}"}
-	# 	varietal		"grape"
-	# 	country			"Wineland"
-	# 	vintage			2000
-	# 	description "tasty"
-	# 	price				{ 10 + rand(100) }
-	# end
-
 
 # By passing :user to the factory we tell the factory that the subsequent
 # definition is for a User model object, same with :wine. 

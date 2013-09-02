@@ -10,13 +10,15 @@
 #  price       :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  name        :string(255)
 #
 
 class Wine < ActiveRecord::Base
 
 	VALID_PRICE_REGEX = /\d+(,\d{1,2})?/
-	attr_accessible :varietal, :country, :vintage, :description, :price
+	attr_accessible :name, :varietal, :country, :vintage, :description, :price
 
+	validates :name, presence: true, length: { maximum: 125 }
 	validates :varietal, presence: true, length: { maximum: 75 }
 # It may be a blend with a number of varietals strung together.
 	validates :country, presence: true, length: { maximum: 20 }

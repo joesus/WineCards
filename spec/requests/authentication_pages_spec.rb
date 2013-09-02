@@ -115,10 +115,10 @@ require 'spec_helper'
 				it { should_not have_title(full_title('Edit user')) }
 			end
 
-			describe "submitting a PATCH request to the Users#update action" do
-				before { patch user_path(wrong_user) }
-				specify { expect(response).to redirect_to(root_url) }		
-			end
+			# describe "submitting a PATCH request to the Users#update action" do
+			# 	before { patch user_path(wrong_user) }
+			# 	specify { expect(response).to redirect_to(root_url) }		
+			# end
 		end
 
 		describe "as non-admin user" do
@@ -127,10 +127,10 @@ require 'spec_helper'
 
 			before { sign_in non_admin, no_capybara: true }
 
-			describe "submitting a DELETE request to the Users#destroy action" do
-				before { delete user_path(user) }
-				specify { expect(response).to redirect_to(root_url) }
-			end
+			# describe "submitting a DELETE request to the Users#destroy action" do
+			# 	before { delete user_path(user) }
+			# 	specify { expect(response).to redirect_to(root_url) }
+			# end
 		end
 	end
 end

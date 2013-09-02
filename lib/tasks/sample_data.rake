@@ -21,5 +21,20 @@ namespace :db do
 									 password: password,
 									 password_confirmation: password)
 		end
+
+		10.times do |n|
+			name = Faker::Name.name + "\'s Wine"
+			varietal = "Grape-#{n+1}"
+			country = "#{n+1}-land"
+			vintage = "#{2000 + rand(10)}"
+			price = "#{10 + rand(100)}"
+			description = Faker::Lorem.sentence(3)
+			Wine.create!(name: name,
+									 varietal: varietal,
+									 country: country,
+									 vintage: vintage,
+									 price: price,
+									 description: description)
+		end
 	end
 end

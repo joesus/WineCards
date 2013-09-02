@@ -10,6 +10,7 @@
 #  price       :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  name        :string(255)
 #
 
 require 'spec_helper'
@@ -17,12 +18,14 @@ require 'spec_helper'
 describe Wine do
 
 	before do
-		@wine = Wine.new(varietal: "grape", country: "wineland",
-										 vintage: 2000, description: "tasty", price: 200)
+		@wine = Wine.new(name: "Mr. Joe's Wine", varietal: "grape", 
+										 country: "wineland", vintage: 2000, description: "tasty", 
+										 price: 200)
  	end
 
  	subject { @wine }
 
+ 	it { should respond_to(:name) }
  	it { should respond_to(:varietal) }
  	it { should respond_to(:country) }
  	it { should respond_to(:vintage) }
@@ -59,9 +62,3 @@ describe Wine do
 		it { should_not be_valid }
 	end
 end
-
-
-
-
-
-
