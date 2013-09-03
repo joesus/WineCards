@@ -14,6 +14,8 @@
 #
 
 class Wine < ActiveRecord::Base
+	has_many :comments
+	has_and_belongs_to_many :users
 
 	VALID_PRICE_REGEX = /\d+(,\d{1,2})?/
 	attr_accessible :name, :varietal, :country, :vintage, :description, :price
@@ -27,7 +29,5 @@ class Wine < ActiveRecord::Base
 						format: { with: VALID_PRICE_REGEX },
 						numericality: { greater_than_or_equal_to: 0.01 }
 end
-
-
 
 

@@ -24,9 +24,28 @@
 	  				<td>Tasting Notes</td>
 	  			</tr>
 	  			<tr>
-	  				<td>INSERT THE ERB FOR THE COMMENTS if any? HERE</td>
+	  				<td>
+							<%= render 'shared/comment_form' %>
+	  				</td>
 	  			</tr>
+					<% @wine.comments.each do |comment| %>
+					<tr>
+	  				<td>
+	  					<%= comment.content %>
+	  				</td>
+	  			</tr>
+	  			<% end %>
 	  		</tbody>
 	  	</table>
  		</div>
+ 	</div>
 </div>
+
+
+
+
+
+
+
+
+

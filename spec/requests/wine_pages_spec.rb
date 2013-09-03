@@ -4,15 +4,72 @@ describe "WinePages" do
   
   subject { page }
 
-  describe "show page" do
-    let(:wine) { FactoryGirl.create(:wine) }
-    before { visit wine_path(wine) }
+  describe "index" do
+    let(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      sign_in user
+      visit wines_path
+    end
 
-    it { should have_title(full_title(wine.name)) }
-    it { should have_content(wine.varietal) }
-    it { should have_content(wine.price) }
-    it { should have_content("Tasting Notes") }
+    it { should have_title('All Wines') }
+    it { should have_content('All Wines') }
+    it { should have_link('Add a Wine') }
+
+    describe "pagination" do
+      
+      before(:all)    { 50.times { FactoryGirl.create(:wine) } }
+      after(:all)     { Wine.delete_all }
+
+      it { should have_selector('div.pagination') }
+
+      it "should list each wine" do
+        Wine.paginate(page: 1).each do |wine|
+        expect(page).to have_selector('td', text: wine.name)
+        end
+      end
+    end
+
+    describe "delete links" do
+    
+      it { should_not have_link('delete') }
+
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_in admin
+          visit wines_path
+        end
+
+        # it { should have_link('delete', href: wine_path(Wine.first)) }
+        # it "should be able to delete another wine" do
+        #   expect do
+        #     click_link('delete', match: :first)
+        #   end.to change(Wine, :count).by(-1)
+        # end
+      end
+    end
   end
+
+
+# FIX THIS WHEN YOU CAN ADD COMMENTS TO YOUR WINES
+
+  # describe "show page" do
+  #   let(:user) { FactoryGirl.create(:user) }
+  #   let!(:c1)   { FactoryGirl.create(:comment, user: user, content: "Foo") }
+  #   let!(:c2)   { FactoryGirl.create(:comment, user: user, content: "Bar") }
+
+  #   before { visit wine_path(wine) }
+
+  #   it { should have_title(full_title(wine.name)) }
+  #   it { should have_content(wine.varietal) }
+  #   it { should have_content(wine.price) }
+  #   it { should have_content("Tasting Notes") }
+
+  #   describe "comments" do
+  #     it { should have_content(c1.content) }
+  #     it { should have_content(c2.content) }
+  #   end
+  # end
 
   describe "adding a wine" do
 
@@ -54,15 +111,9 @@ describe "WinePages" do
     end
   end
 
-  describe "index" do
-  	let(:user) { FactoryGirl.create(:user) }
-  	before(:each) do
-  		sign_in user
-  		visit wines_path
-  	end
-
-  	it { should have_title('All Wines') }
-  	it { should have_content('All Wines') }
-    it { should have_link('Add a Wine') }
-  end
+  
 end
+
+
+
+

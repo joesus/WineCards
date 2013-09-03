@@ -22,7 +22,7 @@ namespace :db do
 									 password_confirmation: password)
 		end
 
-		10.times do |n|
+		50.times do |n|
 			name = Faker::Name.name + "\'s Wine"
 			varietal = "Grape-#{n+1}"
 			country = "#{n+1}-land"
@@ -35,6 +35,12 @@ namespace :db do
 									 vintage: vintage,
 									 price: price,
 									 description: description)
+		end
+
+		users = User.all(limit: 6)
+		50.times do
+			content = Faker::Lorem.sentence(5)
+			users.each { |user| user.comments.create!(content: content) }
 		end
 	end
 end

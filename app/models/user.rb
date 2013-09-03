@@ -14,6 +14,8 @@
 #
 
 class User < ActiveRecord::Base
+	has_many :comments, dependent: :destroy
+	has_many :wines
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 # Copied Standard Regex for Standard Email

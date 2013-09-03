@@ -18,6 +18,11 @@ FactoryGirl.define do
 		description "tasty"
 		price				{ 10 + rand(100) }
 	end
+
+	factory :comment do
+		content "Smoky and Oaky Nose"
+		user
+	end
 end
 
 # By passing :user to the factory we tell the factory that the subsequent

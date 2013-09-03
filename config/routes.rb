@@ -1,7 +1,10 @@
 WineCards::Application.routes.draw do
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :wines
+  resources :wines do
+    resources :comments, shallow: true
+  end
   # because there's no reason to show or update them. 
 
   root 'static_pages#home'

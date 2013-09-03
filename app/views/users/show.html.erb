@@ -2,3 +2,14 @@
 <% provide(:title, @user.name) %>
 <h1><%= @user.name %></h1>
 <%= link_to 'Add a Wine', new_wine_path %>
+
+
+<div class="span8">
+	<% if @user.comments.any? %>
+	<h3>Comments</h3>
+	<ol class="comments">
+		<%= render @comments %>
+	</ol>
+	<%= will_paginate @comments %>
+	<% end %>
+</div>

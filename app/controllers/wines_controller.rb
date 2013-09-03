@@ -1,12 +1,15 @@
 class WinesController < ApplicationController
 	before_action :signed_in_user, only: [:update]
+	before_action :admin_user, 		 only: :destroy
 
 	def index
 		@wines = Wine.paginate(page: params[:page])
+		@user = User.find_by(params[:remember_token])
 	end
 	
 	def show
 		@wine = Wine.find(params[:id])
+		@comment = current_user.comments.build
 	end
 
 	def new
@@ -23,6 +26,11 @@ class WinesController < ApplicationController
 		end
 	end
 
+	def destroy
+		Wine.find(params[:id]).destroy
+		flash[:success] = "Wine Deleted"
+		redirect_to wines_path
+	end
 
 
 private
@@ -30,6 +38,10 @@ private
 	def wine_params
 		params.require(:wine).permit(:name, :varietal, :country, :vintage,
 																 :description, :price)
+	end
+
+	def admin_user
+		redirect_to(root_url) unless current_user.admin?
 	end
 
 end

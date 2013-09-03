@@ -4,3 +4,17 @@
 <%= link_to 'Add a Wine', new_wine_path %>
 <%= link_to 'By Grape', '#' %>
 <%= link_to 'By Place', '#' %>
+</br>
+
+<%= will_paginate %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <%= render @wines %>
+</table>
+
+<%= will_paginate %>
