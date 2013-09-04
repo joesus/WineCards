@@ -5,10 +5,11 @@ describe "Comment pages" do
   subject { page }
 
   let(:user) { FactoryGirl.create(:user) }
+  let(:wine) { FactoryGirl.create(:wine) }
   before { sign_in user }
 
   describe "comment creation" do
-    before { visit root_path }
+    before { visit wine_path(wine) }
 
     describe "with invalid information" do
 

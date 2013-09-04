@@ -50,26 +50,27 @@ describe "WinePages" do
     end
   end
 
+  describe "show page" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:wine) { FactoryGirl.create(:wine) }
+    let!(:c1)   { FactoryGirl.create(:comment, user_id: user.id, wine_id: wine.id, content: "Foo") }
+    let!(:c2)   { FactoryGirl.create(:comment, user_id: user.id, wine_id: wine.id, content: "Bar") }
 
-# FIX THIS WHEN YOU CAN ADD COMMENTS TO YOUR WINES
+    before(:each) do 
+      sign_in user
+      visit wine_path(wine)
+    end
 
-  # describe "show page" do
-  #   let(:user) { FactoryGirl.create(:user) }
-  #   let!(:c1)   { FactoryGirl.create(:comment, user: user, content: "Foo") }
-  #   let!(:c2)   { FactoryGirl.create(:comment, user: user, content: "Bar") }
+    it { should have_title(full_title(wine.name)) }
+    it { should have_content(wine.varietal) }
+    it { should have_content(wine.price) }
+    it { should have_content("Tasting Notes") }
 
-  #   before { visit wine_path(wine) }
-
-  #   it { should have_title(full_title(wine.name)) }
-  #   it { should have_content(wine.varietal) }
-  #   it { should have_content(wine.price) }
-  #   it { should have_content("Tasting Notes") }
-
-  #   describe "comments" do
-  #     it { should have_content(c1.content) }
-  #     it { should have_content(c2.content) }
-  #   end
-  # end
+    describe "comments" do
+      it { should have_content(c1.content) }
+      it { should have_content(c2.content) }
+    end
+  end
 
   describe "adding a wine" do
 

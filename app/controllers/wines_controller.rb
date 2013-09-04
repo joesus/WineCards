@@ -9,7 +9,7 @@ class WinesController < ApplicationController
 	
 	def show
 		@wine = Wine.find(params[:id])
-		@comment = current_user.comments.build
+		@comment = Comment.new
 	end
 
 	def new

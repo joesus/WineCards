@@ -23,18 +23,19 @@
 	  			<tr>
 	  				<td>Tasting Notes</td>
 	  			</tr>
-	  			<tr>
-	  				<td>
-							<%= render 'shared/comment_form' %>
-	  				</td>
-	  			</tr>
-					<% @wine.comments.each do |comment| %>
+
+					<%= @wine.comments.each do |comment| %>
 					<tr>
 	  				<td>
 	  					<%= comment.content %>
 	  				</td>
 	  			</tr>
 	  			<% end %>
+	  			<tr>
+	  				<td>
+							<%= render 'shared/comment_form' %>
+	  				</td>
+	  			</tr>
 	  		</tbody>
 	  	</table>
  		</div>

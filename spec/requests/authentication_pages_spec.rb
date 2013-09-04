@@ -52,11 +52,12 @@ require 'spec_helper'
 		
 		describe "for non-signed-in users" do
 			let(:user) { FactoryGirl.create(:user) }
+			let(:wine) { FactoryGirl.create(:wine) }
 
 			describe "in the comments controller" do
 				
 				describe "submitting to the create action" do
-					before { post comments_path }
+					before { post wine_comments_path(wine) }
 					specify { expect(response).to redirect_to(signin_path) }
 				end
 

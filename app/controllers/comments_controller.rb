@@ -7,9 +7,10 @@ class CommentsController < ApplicationController
   	@comment.user_id = current_user.id
     if @comment.save
   		flash[:success] = "Comment Saved"
-  	redirect_to wine_path(@wine)
+      redirect_to wine_path(@wine)
   	else
-  		render 'static_pages/home'
+  		flash[:danger] = "There were errors with your submission"
+      render 'wines/show'
   	end
   end
 
