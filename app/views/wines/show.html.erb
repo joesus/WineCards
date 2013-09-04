@@ -23,9 +23,11 @@
 	  			<tr>
 	  				<td>Tasting Notes</td>
 	  			</tr>
-
 					<%= @wine.comments.each do |comment| %>
 					<tr>
+						<td>
+							<%= comment.user.name %>
+						</td>
 	  				<td>
 	  					<%= comment.content %>
 	  				</td>

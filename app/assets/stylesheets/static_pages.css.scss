@@ -103,7 +103,7 @@ input {
 
 .field_with_error {
   @extend .control-group;
-  @extend .error;
+  @extend .danger;
 }
 
 /* Microposts */

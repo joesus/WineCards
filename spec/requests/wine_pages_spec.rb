@@ -65,6 +65,7 @@ describe "WinePages" do
     it { should have_content(wine.varietal) }
     it { should have_content(wine.price) }
     it { should have_content("Tasting Notes") }
+    it { should have_content(user.name) }
 
     describe "comments" do
       it { should have_content(c1.content) }
