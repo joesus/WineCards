@@ -1,3 +1,9 @@
 <li>
-  <span class="content"><%= comment.content %></span>
+  <span class="content">"<%= comment.content %>"</span>
+</br>
+  <%= comment.user.name %>
+</br>
+  <span class="timestamp">
+  	Posted on <%= comment.created_at.strftime("%b/%e/%y") %>.
+  </span>
 </li>

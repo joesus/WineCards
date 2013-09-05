@@ -1,8 +1,13 @@
 <!-- accessible from controller by simply directing to @user -->
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
-<%= link_to 'Add a Wine', new_wine_path %>
+<h1 id="name">
+	  <%= gravatar_for @user, size: 52 %>
+		<%= @user.name %>
+</h1>
 
+<button type="button" class="btn btn-default" id="AddWineButton">
+<%= link_to 'Add a Wine', new_wine_path %>
+</button>
 
 <div class="span8">
 	<% if @user.comments.any? %>

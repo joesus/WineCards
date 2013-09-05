@@ -25,6 +25,19 @@
   color: #777;
 }
 
+/* User Show Page */
+
+#AddWineButton > a {
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+#name {
+  margin-bottom: 20px;
+}
+
+
 /* Users index */
 
 .users {
@@ -106,7 +119,7 @@ input {
   @extend .danger;
 }
 
-/* Microposts */
+/* Comments */
 
 .comments {
   list-style: none;
@@ -132,4 +145,15 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* Wine Page */
+
+.description {
+  text-indent: 30px;
+}
+
+#commentname {
+  font-weight: strong;
+  color: black;
 }

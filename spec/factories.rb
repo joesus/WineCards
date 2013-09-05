@@ -14,6 +14,7 @@ FactoryGirl.define do
 		sequence(:name)			{ |n| "Mister No. #{n}'s Wine"}
 	  sequence(:varietal) { |n| "Grape #{n}"}
 		sequence(:country)	{ |n| "#{n}-Landia"}
+		sequence(:place)		{ |n| "Napa-#{n}"}
 		vintage			{ 2000 + rand(10) }
 		description "tasty"
 		price				{ 10 + rand(100) }

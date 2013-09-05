@@ -26,12 +26,14 @@ namespace :db do
 			name = Faker::Name.name + "\'s Wine"
 			varietal = "Grape-#{n+1}"
 			country = "#{n+1}-land"
+			place = Faker::Address.city
 			vintage = "#{2000 + rand(10)}"
 			price = "#{10 + rand(100)}"
-			description = Faker::Lorem.sentence(3)
+			description = Faker::Lorem.sentence(6)
 			Wine.create!(name: name,
 									 varietal: varietal,
 									 country: country,
+									 place: place,
 									 vintage: vintage,
 									 price: price,
 									 description: description)

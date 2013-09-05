@@ -1,20 +1,35 @@
 <% provide(:title, "All Wines") %>
-<h1>All Wines</h1>
 
-<%= link_to 'Add a Wine', new_wine_path %>
-<%= link_to 'By Grape', '#' %>
-<%= link_to 'By Place', '#' %>
-</br>
+<div class="panel panel-default">
+	<div class="panel-heading"><h1>All Wines</h1>
+		<div class="panel-body">
+			<%= link_to 'Add a Wine', new_wine_path %>
+		<br>
+			<h4>Find a Wine</h4>
+				<div class="row">
+					<div class="col-md-5">
 
-<%= will_paginate %>
+						<%= search_form_for @search do |f| %>
+						<%= f.label :name_or_place_cont %>
+						<%= f.text_field :name_or_place_cont %>
+						<%= f.label :description_cont %>
+						<%= f.text_field :description_cont %>
+						<%= f.label :vintage_cont %>
+						<%= f.text_field :vintage_cont %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
- 
-  <%= render @wines %>
-</table>
+						<%= f.submit %>
+				<% end %>
+				</div>
+			</div>
 
-<%= will_paginate %>
+				<%= will_paginate %>
+
+			<table>
+				<%= render @wines %>
+			</table>
+
+				<%= will_paginate %>	
+	
+		</div>
+	</div>
+</div>

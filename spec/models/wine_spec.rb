@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  name        :string(255)
+#  place       :string(255)
 #
 
 require 'spec_helper'
@@ -19,7 +20,7 @@ describe Wine do
 
 	before do
 		@wine = Wine.new(name: "Mr. Joe's Wine", varietal: "grape", 
-										 country: "wineland", vintage: 2000, description: "tasty", 
+										 country: "wineland", place: "napa", vintage: 2000, description: "tasty", 
 										 price: 200)
  	end
 
@@ -31,6 +32,7 @@ describe Wine do
  	it { should respond_to(:vintage) }
  	it { should respond_to(:description) }
  	it { should respond_to(:price) }
+ 	it { should respond_to(:place) }
 
  	it { should be_valid }
  	
@@ -61,6 +63,11 @@ describe Wine do
 
 	describe "a price that is a string" do
 		before { @wine.price = "string" }
+		it { should_not be_valid }
+	end
+
+	describe 'with a place that is empty' do
+		before { @wine.place = " " }
 		it { should_not be_valid }
 	end
 end

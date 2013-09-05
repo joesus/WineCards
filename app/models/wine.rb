@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  name        :string(255)
+#  place       :string(255)
 #
 
 class Wine < ActiveRecord::Base
@@ -18,7 +19,8 @@ class Wine < ActiveRecord::Base
 	has_and_belongs_to_many :users
 
 	VALID_PRICE_REGEX = /\d+(,\d{1,2})?/
-	attr_accessible :name, :varietal, :country, :vintage, :description, :price
+	attr_accessible :name, :varietal, :country, :vintage, :description,
+								  :price, :place
 
 	validates :name, presence: true, length: { maximum: 125 }
 	validates :varietal, presence: true, length: { maximum: 75 }
@@ -28,6 +30,7 @@ class Wine < ActiveRecord::Base
 	validates :price, presence: true, 
 						format: { with: VALID_PRICE_REGEX },
 						numericality: { greater_than_or_equal_to: 0.01 }
+	validates :place, presence: true, length: { maximum: 75 }
 end
 
 

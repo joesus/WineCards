@@ -100,6 +100,7 @@ describe "WinePages" do
         before do
           fill_in "Name",         with: "Joe's Wine"
           fill_in "Varietal",     with: "Merlot"
+          fill_in "Place",        with: "Napa Valley"
           fill_in "Country",      with: "America"
           fill_in "Vintage",      with: 2001
           fill_in "Description",  with: "Tasty"

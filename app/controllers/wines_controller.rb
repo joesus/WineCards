@@ -3,17 +3,15 @@ class WinesController < ApplicationController
 	before_action :admin_user, 		 only: :destroy
 
 	def index
-		@wines = Wine.paginate(page: params[:page])
+		@search = Wine.search(params[:q])
+		@wines = @search.result.paginate(page: params[:page])
 		@user = User.find_by(params[:remember_token])
 	end
-	
+
 	def show
 		@wine = Wine.find(params[:id])
 		@comment = @wine.comments
 	end
-	 
-		# @user = User.find_by(@comment)
-		# @user_name = @comment.user.name
 
 	def new
 		@wine = Wine.new
@@ -40,7 +38,7 @@ private
 
 	def wine_params
 		params.require(:wine).permit(:name, :varietal, :country, :vintage,
-																 :description, :price)
+																 :description, :price, :place)
 	end
 
 	def admin_user
