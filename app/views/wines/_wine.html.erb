@@ -1,6 +1,13 @@
 <tr>
-  <td><%= link_to wine.name, wine %></td>
-  <td><%= wine.varietal %></td>
+  <td>
+  	<%= link_to wine.name, wine %>, <%= wine.varietal %>, <%= wine.country %>, 
+  </td>
+  <td>
+  	<%= wine.vintage %>
+  </td>
+  <td>
+  	<%= wine.price %>
+  </td>
 <% if current_user.admin? && !current_user?(@user) %>
 	<td> | <%= link_to 'delete', wine, method: :delete,
 																data: { confirm: "You sure?"} %>

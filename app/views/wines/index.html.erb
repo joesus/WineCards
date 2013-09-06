@@ -3,8 +3,9 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><h1>All Wines</h1>
 		<div class="panel-body">
-			<%= link_to 'Add a Wine', new_wine_path %>
-		<br>
+			<% if current_user.admin? && !current_user?(@user) %>
+				<button type="button" class="btn btn-primary" id="WineButton"><%= link_to 'Add a Wine', new_wine_path %></button>
+			<% end %>				
 			<h4>Find a Wine</h4>
 				<div class="row">
 					<div class="col-md-5">
@@ -14,8 +15,8 @@
 						<%= f.text_field :name_or_place_cont %>
 						<%= f.label :description_cont %>
 						<%= f.text_field :description_cont %>
-						<%= f.label :vintage_cont %>
-						<%= f.text_field :vintage_cont %>
+						<%= f.label :vintage %>
+						<%= f.text_field :vintage_eq %>
 
 						<%= f.submit %>
 				<% end %>
@@ -24,9 +25,16 @@
 
 				<%= will_paginate %>
 
-			<table>
+		<table class="table table-hover table-responsive">
+			<thead>
+    		<th><%= sort_link @search, :name, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+    		<th><%= sort_link @search, :vintage, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+    		<th><%= sort_link @search, :price, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+  		</thead>
+  		<tbody>
 				<%= render @wines %>
-			</table>
+			</tbody>
+		</table>
 
 				<%= will_paginate %>	
 	

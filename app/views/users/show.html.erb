@@ -5,9 +5,9 @@
 		<%= @user.name %>
 </h1>
 
-<button type="button" class="btn btn-default" id="AddWineButton">
-<%= link_to 'Add a Wine', new_wine_path %>
-</button>
+<% if current_user.admin? && !current_user?(@user) %>
+	<button type="button" class="btn btn-primary" id="WineButton"><%= link_to 'Add a Wine', new_wine_path %></button>
+<% end %>	
 
 <div class="span8">
 	<% if @user.comments.any? %>

@@ -224,7 +224,8 @@ table {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
+    color: black;
   }
   a[href]:after {
     content: " (" attr(href) ")";
@@ -327,6 +328,7 @@ textarea {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:hover,
