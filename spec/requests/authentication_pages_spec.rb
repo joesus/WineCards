@@ -110,11 +110,6 @@ require 'spec_helper'
 					specify { expect(response).to redirect_to(signin_path) }
 # Response tests for server response itself
 				end
-
-				describe "visiting the user index" do
-					before { visit users_path }
-					it { should have_title('Sign in') }
-				end
 			end
 		end
 # 		

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :signed_in_user
+	before_action :signed_in_user, only: [:create, :destroy]
 
   def create
     @wine = Wine.find(params[:wine_id])
@@ -15,6 +15,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment.destroy
+    redirect_to root_url
   end
 
   def new

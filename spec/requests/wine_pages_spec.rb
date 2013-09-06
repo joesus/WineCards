@@ -13,7 +13,6 @@ describe "WinePages" do
 
     it { should have_title('All Wines') }
     it { should have_content('All Wines') }
-    it { should have_link('Add a Wine') }
 
     describe "pagination" do
       

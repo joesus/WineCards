@@ -1,0 +1,17 @@
+<table>
+<!--   <p>SQL: <%= #@wines.to_sql %></p> -->
+  <thead>
+    <th><%= sort_link @search, :name, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+    <th><%= sort_link @search, :last_name, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+    <th><%= sort_link @search, :email, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+  </thead>
+  <tbody>
+    <% @wines.limit(10).each do |wine| %>
+      <tr>
+        <td><%= wine.id %></td>
+        <td><%= wine.varietal %></td>
+        <td><%= wine.vintage %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

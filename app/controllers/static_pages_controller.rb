@@ -1,7 +1,11 @@
 class StaticPagesController < ApplicationController
 
   def home
-  	@comment = current_user.comments.build if signed_in?
+    @user = current_user
+    if signed_in?
+  	  @comment = current_user.comments.build
+			redirect_to user_path(@user)
+  	end
   end
 
   def help
