@@ -38,7 +38,7 @@ private
 
 	def wine_params
 		params.require(:wine).permit(:name, :varietal, :country, :vintage,
-																 :description, :price, :place)
+																 :description, :price, :place, :producer)
 	end
 
 	def admin_user

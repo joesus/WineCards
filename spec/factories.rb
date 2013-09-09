@@ -18,6 +18,7 @@ FactoryGirl.define do
 		vintage			{ 2000 + rand(10) }
 		description "tasty"
 		price				{ 10 + rand(100) }
+		producer { "Sbragia Vineyards" }
 	end
 
 	factory :comment do
