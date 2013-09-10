@@ -59,7 +59,7 @@ describe Wine do
 	end
 
 	describe "with a description that's too long" do
-		before { @wine.description = "a" * 201 }
+		before { @wine.description = "a" * 501 }
 		it { should_not be_valid }
 	end
 

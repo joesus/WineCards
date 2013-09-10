@@ -1,7 +1,7 @@
-<% provide(:title, "Add a Wine") %>
+<% provide(:title, "Edit Wine") %>
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<h1>Add a Wine</h1>
+		<h1>Edit Wine</h1>
 
 		<%= form_for(@wine) do |f| %>
 
@@ -31,7 +31,7 @@
 			<%= f.label :price %>
 			<%= f.text_field :price %>
 
-			<%= f.submit "Add Wine", class: "btn btn-large btn-primary" %>
+			<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
 
 			<% end %>
 	</div>

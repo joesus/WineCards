@@ -11,14 +11,14 @@ FactoryGirl.define do
 	end
 
 	factory :wine do
-		sequence(:name)			{ |n| "Mister No. #{n}'s Wine"}
 	  sequence(:varietal) { |n| "Grape #{n}"}
 		sequence(:country)	{ |n| "#{n}-Landia"}
 		sequence(:place)		{ |n| "Napa-#{n}"}
+		name				{ "Proprietary Blend" }
 		vintage			{ 2000 + rand(10) }
-		description "tasty"
+		description { "tasty" }
 		price				{ 10 + rand(100) }
-		producer { "Sbragia Vineyards" }
+		producer 		{ "Sbragia Vineyards" }
 	end
 
 	factory :comment do

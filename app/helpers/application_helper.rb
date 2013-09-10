@@ -12,7 +12,7 @@ module ApplicationHelper
 
 	def wine_name
 		if @wine.name.empty?
-			"#{@wine.producer} - #{@wine.price}"
+			"#{@wine.producer}, #{@wine.varietal} - $#{@wine.price}"
 		else
 			"#{@wine.producer}, #{@wine.name} - $#{@wine.price}"
 		end

@@ -113,7 +113,50 @@ describe "WinePages" do
     end
   end
 
-  
+  describe "edit" do
+    let(:admin) { FactoryGirl.create(:admin) }
+    let(:wine)  { FactoryGirl.create(:wine) }
+    before do
+      sign_in admin
+      visit edit_wine_path(wine)
+    end
+
+    describe "page" do
+      it { should have_content("Edit Wine") }
+      it { should have_title("Edit Wine")}
+    end
+
+    describe "with invalid information" do
+      let(:new_varietal)  { " " }
+      let(:new_country)   { " " }
+      let(:new_place)     { " " }
+      before do
+        fill_in "Varietal",     with: new_varietal
+        fill_in "Country",      with: new_country
+        fill_in "Place",        with: new_place
+        click_button "Save changes"
+      end
+
+      it { should have_content('error') }
+    end
+
+    describe "with valid information" do
+      let(:new_varietal) { "Merlot" }
+      let(:new_country)  { "France" }
+      let(:new_place)    { "Bordeaux" }
+      before do
+        fill_in "Varietal",     with: new_varietal
+        fill_in "Country",      with: new_country
+        fill_in "Place",        with: new_place
+        click_button "Save changes"
+      end
+
+      it { should have_content(new_varietal) }
+      it { should have_content(new_country) }
+      it { should have_content(new_place) }
+      it { should have_selector('div.alert.alert-success') }
+    end
+  end
 end
 
 

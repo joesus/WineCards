@@ -12,7 +12,8 @@
   	<%= wine.price %>
   </td>
 <% if current_user.admin? && !current_user?(@user) %>
-	<td> | <%= link_to 'delete', wine, method: :delete,
+	<td> | <%= link_to 'edit', edit_wine_path(wine) %>
+       | <%= link_to 'delete', wine, method: :delete,
 																data: { confirm: "You sure?"} %>
 	</td>
 <% end %>															

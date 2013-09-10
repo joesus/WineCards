@@ -107,11 +107,6 @@ input {
   }
 }
 
-.field_with_error {
-  @extend .control-group;
-  @extend .danger;
-}
-
 /* Comments */
 
 .comments {

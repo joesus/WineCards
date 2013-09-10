@@ -1,6 +1,6 @@
 class WinesController < ApplicationController
 	before_action :signed_in_user, only: [:update]
-	before_action :admin_user, 		 only: :destroy
+	before_action :admin_user, 		 only: [:edit, :update, :destroy]
 
 	def index
 		@search = Wine.search(params[:q])
@@ -24,6 +24,20 @@ class WinesController < ApplicationController
 			redirect_to @wine
 		else
 			render 'new'
+		end
+	end
+
+	def edit
+		@wine = Wine.find(params[:id])
+	end
+
+	def update
+		@wine = Wine.find(params[:id])
+		if @wine.update_attributes(wine_params)
+			flash[:success] = "Wine updated"
+			redirect_to @wine
+		else
+			render 'edit'
 		end
 	end
 
