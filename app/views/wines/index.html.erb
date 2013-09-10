@@ -24,21 +24,22 @@
 			</div>
 				<%= will_paginate %>
 
-		<table class="table table-hover table-responsive">
-			<thead>
-
-    		<th><%= sort_link @search, :name, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
-     		<th><%= sort_link @search, :country, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
-    		<th><%= sort_link @search, :vintage, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
-    		<th><%= sort_link @search, :price, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
-  		</thead>
-  		<tbody>
-				<%= render @wines %>
-			</tbody>
-		</table>
+		<div class="table-hover table-responsive">
+			<table class="table">
+				<thead>
+    			<th><%= sort_link @search, :name, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+     			<th><%= sort_link @search, :country, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+	    		<th><%= sort_link @search, :vintage, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+  	  		<th><%= sort_link @search, :price, {}, :method => action_name == 'advanced_search' ? :post : :get %></th>
+  			</thead>
+  			<tbody>
+					<%= render @wines %>
+				</tbody>
+			</table> 
+		</div> <!-- table responsive -->
 
 				<%= will_paginate %>	
 	
-		</div>
-	</div>
-</div>
+		</div> <!-- panel body -->
+	</div> <!-- panel heading -->
+</div> <!-- panel -->

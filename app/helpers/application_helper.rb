@@ -9,4 +9,12 @@ module ApplicationHelper
 			"#{base_title} - #{page_title}"
 		end
 	end
+
+	def wine_name
+		if @wine.name.empty?
+			"#{@wine.producer} - #{@wine.price}"
+		else
+			"#{@wine.producer}, #{@wine.name} - $#{@wine.price}"
+		end
+	end
 end

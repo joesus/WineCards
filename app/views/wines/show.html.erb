@@ -1,6 +1,8 @@
 <% provide(:title, @wine.name) %>
 <div class="panel panel-default">  
-	<div class="panel-heading"><h1><%= @wine.name %>, <%= @wine.producer %>- $<%= @wine.price %></h1></div>
+	<div class="panel-heading">
+		<h1><%= wine_name %></h1>
+	 </div>
 	  <div class="panel-body">
 	  	<table class="table table-hover table-responsive">
 	  		<tbody>
@@ -28,7 +30,7 @@
 	  				<td colspan="2">Description</td>
 	  			</tr>
 	  			<tr>
-	  				<td class="description"><%= @wine.description %></td>
+	  				<td colspan="2" class="description"><%= @wine.description %></td>
 	  			</tr>
 	  			<tr>
 	  				<td colspan="2">Tasting Notes</td>
