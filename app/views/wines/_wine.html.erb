@@ -1,6 +1,10 @@
 <tr>
   <td>
-  	<%= link_to wine.producer, wine %> <%= wine.name %>
+    <% if wine.name.empty? %>
+      <%= link_to wine.producer, wine %>, <%= wine.varietal %>
+    <% else %>
+    	<%= link_to wine.producer, wine %>, <%= wine.name %>
+    <% end %>
   </td>
   <td>
     <%= wine.country %>

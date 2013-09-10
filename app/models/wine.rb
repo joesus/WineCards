@@ -31,7 +31,7 @@ class Wine < ActiveRecord::Base
 						format: { with: VALID_PRICE_REGEX },
 						numericality: { greater_than_or_equal_to: 0.01 }
 	validates :place, presence: true, length: { maximum: 75 }
-	validates :producer, length: { maximum: 75 }
+	validates :producer, presence: true, length: { maximum: 75 }
 end
 
 # Figure out what validations to pass to producer. 

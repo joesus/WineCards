@@ -75,6 +75,6 @@ describe Wine do
 
 	describe "with a producer that is empty" do
 		before { @wine.producer = " " }
-		it { should be_valid }
+		it { should_not be_valid }
 	end
 end
