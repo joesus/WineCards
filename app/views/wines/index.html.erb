@@ -3,7 +3,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><h1>All Wines</h1>
 		<div class="panel-body">
-			<% if current_user.admin? && !current_user?(@user) %>
+			<% if current_user.admin? %>
 				<button type="button" class="btn btn-primary" id="WineButton"><%= link_to 'Add a Wine', new_wine_path %></button>
 			<% end %>				
 			<h4>Find a Wine</h4>
