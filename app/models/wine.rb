@@ -22,11 +22,11 @@ class Wine < ActiveRecord::Base
 	attr_accessible :name, :producer, :varietal, :country, :vintage, :description,
 								  :price, :place
 
-	validates :name, presence: true, length: { maximum: 125 }
+	validates :name, length: { maximum: 125 }
 	validates :varietal, presence: true, length: { maximum: 75 }
 # It may be a blend with a number of varietals strung together.
 	validates :country, presence: true, length: { maximum: 20 }
-	validates :description, presence: true, length: { maximum: 200 }
+	validates :description, presence: true, length: { maximum: 500 }
 	validates :price, presence: true, 
 						format: { with: VALID_PRICE_REGEX },
 						numericality: { greater_than_or_equal_to: 0.01 }
