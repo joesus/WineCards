@@ -11,11 +11,11 @@
 					<div class="col-md-5">
 
 						<%= search_form_for @search do |f| %>
-						<%= f.label :name_or_place_cont %>
-						<%= f.text_field :name_or_place_cont %>
-						<%= f.label :description_cont %>
+						<%= f.label :name_or_place_or_producer_cont %>
+						<%= f.text_field :name_or_place_or_producer_cont %>
+						<%= f.label :search_by_description %>
 						<%= f.text_field :description_cont %>
-						<%= f.label :vintage %>
+						<%= f.label :search_by_vintage %>
 						<%= f.text_field :vintage_eq %>
 
 						<%= f.submit %>
