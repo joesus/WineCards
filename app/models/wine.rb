@@ -26,7 +26,7 @@ class Wine < ActiveRecord::Base
 	validates :varietal, presence: true, length: { maximum: 75 }
 # It may be a blend with a number of varietals strung together.
 	validates :country, presence: true, length: { maximum: 20 }
-	validates :description, presence: true, length: { maximum: 500 }
+	validates :description, presence: true, length: { maximum: 1000 }
 	validates :price, presence: true, 
 						format: { with: VALID_PRICE_REGEX },
 						numericality: { greater_than_or_equal_to: 0.01 }
