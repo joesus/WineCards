@@ -31,6 +31,7 @@ namespace :db do
 			price = "#{10 + rand(100)}"
 			description = Faker::Lorem.sentence(6)
 			producer = Faker::Name.name + "Vineyards"
+			category = "Spain"
 			Wine.create!(name: name,
 									 varietal: varietal,
 									 country: country,
@@ -38,7 +39,8 @@ namespace :db do
 									 vintage: vintage,
 									 price: price,
 									 description: description,
-									 producer: producer)
+									 producer: producer,
+									 category: category)
 		end
 
 		users = User.all(limit: 6)

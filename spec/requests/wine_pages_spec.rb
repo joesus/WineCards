@@ -1,8 +1,136 @@
 require 'spec_helper'
 
-describe "WinePages" do
+describe "Views" do
   
   subject { page }
+
+  describe "Category Views" do
+    let(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      sign_in user
+    end
+
+    describe "Champagne Page" do
+      before { visit champagne_path }
+
+      it { should have_content('Champagne and Sparkling Wine') }
+    end
+
+    describe "Burgundy White Page" do
+      before { visit burgundywhite_path }
+      it { should have_content('Burgundy, White') }
+    end
+
+    describe "Burgundy Red Page" do
+      before { visit burgundyred_path }
+      it { should have_content('Burgundy, Red') }
+    end
+
+    describe "Bordeaux Red Page" do
+      before { visit bordeauxred_path }
+      it { should have_content('Bordeaux, Red') }
+    end
+
+    describe "Proprietary Blend Page" do
+      before { visit propblends_path }
+      it { should have_content('Proprietary Blends') }
+    end
+
+    describe "Spain Page" do
+      before { visit spain_path }
+      it { should have_content('Spain') }
+    end
+
+    describe "Pinot Noir" do
+      before { visit pinotnoir_path }
+      it { should have_content('Pinot Noir') }
+    end
+
+    describe "Cabernet Sauvignon Page" do
+      before { visit cabsauv_path }
+      it { should have_content('Cabernet Sauvignon') }
+    end
+
+    describe "Merlot Page" do
+      before { visit merlot_path }
+      it { should have_content('Merlot') }
+    end    
+
+    describe "Syrah Page" do
+      before { visit syrah_path }
+      it { should have_content('Syrah') }
+    end    
+
+    describe "Rhone Page" do
+      before { visit rhone_path }
+      it { should have_content('Rhone') }
+    end    
+
+    describe "Loire Page" do
+      before { visit loire_path }
+      it { should have_content('Loire') }
+    end    
+
+    describe "Chardonnay Page" do
+      before { visit chardonnay_path }
+      it { should have_content('Chardonnay') }
+    end    
+
+    describe "Sauvignon Blanc Page" do
+      before { visit sauvblanc_path }
+      it { should have_content('Sauvignon Blanc') }
+    end
+
+    describe "Interesting Whites Page" do
+      before { visit intwhites_path }
+      it { should have_content('Interesting Whites') }
+    end    
+
+    describe "Interesting Reds Page" do
+      before { visit intreds_path }
+      it { should have_content('Interesting Reds') }
+    end    
+
+    describe "Italy White Page" do
+      before { visit italywhite_path }
+      it { should have_content('Italy, White') }
+    end 
+
+    describe "Italy Red Page" do
+      before { visit italyred_path }
+      it { should have_content('Italy, Red') }
+    end 
+
+    describe "Australia NZ White Page" do
+      before { visit aus_nz_white_path }
+      it { should have_content('Australia/New Zealand, Whites') }
+    end 
+
+    describe "Australia NZ Red Page" do
+      before { visit aus_nz_red_path }
+      it { should have_content('Australia/New Zealand, Reds') }
+    end 
+
+    describe "Chile Argentina Page" do
+      before { visit chile_arg_path }
+      it { should have_content('Chile Argentina') }
+    end 
+
+    describe "Half Bottles Champagne Page" do
+      before { visit half_champ_sp_path }
+      it { should have_content('Loire') }
+    end
+
+    describe "Half Bottles Red Page" do
+      before { visit half_red_path }
+      it { should have_content('Half Bottles, Red') }
+    end 
+
+    describe "Half Bottles White Page" do
+      before { visit half_white_path }
+      it { should have_content('Half Bottles, White') }
+    end         
+  end
 
   describe "index" do
     let(:user) { FactoryGirl.create(:user) }
@@ -97,6 +225,7 @@ describe "WinePages" do
 
       describe "with valid information" do
         before do
+          fill_in "Producer",     with: "Susnick Vineyards"
           fill_in "Name",         with: "Joe's Wine"
           fill_in "Varietal",     with: "Merlot"
           fill_in "Place",        with: "Napa Valley"
@@ -104,6 +233,7 @@ describe "WinePages" do
           fill_in "Vintage",      with: 2001
           fill_in "Description",  with: "Tasty"
           fill_in "Price",        with: 150
+          fill_in "Category",     with: "Spain"
         end
 
         it "should create a wine" do

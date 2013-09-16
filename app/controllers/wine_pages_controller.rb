@@ -1,8 +1,10 @@
 class WinePagesController < ApplicationController
 
-  def grape
+  def interesting_reds
+  	@wine = Wine.find_by category: "Interesting Reds"
   end
 
-  def place
+  def spain
+  	@wines = Wine.where category: "Spain"
   end
 end

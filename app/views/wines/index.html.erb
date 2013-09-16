@@ -11,8 +11,8 @@
 					<div class="col-md-5">
 
 						<%= search_form_for @search do |f| %>
-						<%= f.label :name_or_place_or_producer_cont %>
-						<%= f.text_field :name_or_place_or_producer_cont %>
+						<%= f.label :name_or_place_or_producer_or_varietal_cont, "Search by Name, Place, Producer, or Varietal"  %>
+						<%= f.text_field :name_or_place_or_producer_or_varietal_cont %>
 						<%= f.label :search_by_description %>
 						<%= f.text_field :description_cont %>
 						<%= f.label :search_by_vintage %>

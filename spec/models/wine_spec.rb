@@ -13,6 +13,7 @@
 #  name        :string(255)
 #  place       :string(255)
 #  producer    :string(255)
+#  category    :string(255)
 #
 
 require 'spec_helper'

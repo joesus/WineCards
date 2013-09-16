@@ -20,7 +20,7 @@ class Wine < ActiveRecord::Base
 
 	VALID_PRICE_REGEX = /\d+(,\d{1,2})?/
 	attr_accessible :name, :producer, :varietal, :country, :vintage, :description,
-								  :price, :place
+								  :price, :place, :category
 
 	validates :name, length: { maximum: 125 }
 	validates :varietal, presence: true, length: { maximum: 75 }

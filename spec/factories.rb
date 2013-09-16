@@ -19,6 +19,7 @@ FactoryGirl.define do
 		description { "tasty" }
 		price				{ 10 + rand(100) }
 		producer 		{ "Sbragia Vineyards" }
+		category		{ "Spain"}
 	end
 
 	factory :comment do

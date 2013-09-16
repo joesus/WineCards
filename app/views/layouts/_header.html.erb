@@ -13,12 +13,15 @@
     <%= link_to "WineCards", root_url, class: 'navbar-brand' %>
   </div>
 
-
-
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><%= link_to "About", about_path %></li>
+
+<% if signed_in? %>
+      <li><%= link_to 'All Wines', wines_path %></li>
+<% end %>
     </ul>
+
 <!-- Search Test -->
 
 
@@ -30,7 +33,37 @@
 
 <ul class="nav navbar-nav navbar-right">
 <% if signed_in? %>
-    <li><%= link_to 'All Wines', wines_path %></li>
+    
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Wines by Category <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Champagne and Sparkling Wine", champagne_path %></li>
+          <li><%= link_to "Burgundy, White", burgundywhite_path %></li>
+          <li><%= link_to "Burgundy, Red", burgundyred_path %></li>
+          <li><%= link_to "Bordeaux, Red", bordeauxred_path %></li>
+          <li><%= link_to "Proprietary Blends", propblends_path %></li>
+          <li><%= link_to "Spain", spain_path %></li>
+          <li><%= link_to "Pinot Noir", pinotnoir_path %></li>
+          <li><%= link_to "Cabernet Sauvignon", cabsauv_path %></li>
+          <li><%= link_to "Merlot", merlot_path %></li>
+          <li><%= link_to "Syrah", syrah_path %></li>
+          <li><%= link_to "Rhone", rhone_path %></li>
+          <li><%= link_to "Loire", loire_path %></li>
+          <li><%= link_to "Chardonnay", chardonnay_path %></li>
+          <li><%= link_to "Sauvignon Blanc", sauvblanc_path %></li>
+          <li><%= link_to "Interesting Whites", intwhites_path %></li>
+          <li><%= link_to "Interesting Reds", intreds_path %></li>
+          <li><%= link_to "Italy, White", italywhite_path %></li>
+          <li><%= link_to "Italy, Red", italyred_path %></li>
+          <li><%= link_to "Australia / NZ, Whites", aus_nz_white_path %></li>
+          <li><%= link_to "Australia / NZ, Reds", aus_nz_red_path %></li>
+          <li><%= link_to "Chile / Argentina", chile_arg_path %></li>
+          <li><%= link_to "Half Bottles, Champagne and Sparkling", half_champ_sp_path %></li>
+          <li><%= link_to "Half Bottles, White", half_white_path %></li>
+          <li><%= link_to "Half Bottles, Red", half_red_path %></li>
+        </ul>
+      </li>
+
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
         <ul class="dropdown-menu">

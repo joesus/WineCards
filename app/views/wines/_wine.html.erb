@@ -7,13 +7,13 @@
     <% end %>
   </td>
   <td>
+    $<%= wine.price %>
+  </td>
+  <td>
     <%= wine.country %>
   </td>
   <td>
   	<%= wine.vintage %>
-  </td>
-  <td>
-  	<%= wine.price %>
   </td>
 <% if current_user.admin? && !current_user?(@user) %>
 	<td> | <%= link_to 'edit', edit_wine_path(wine) %>

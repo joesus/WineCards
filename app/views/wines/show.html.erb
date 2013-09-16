@@ -1,7 +1,12 @@
 <% provide(:title, @wine.name) %>
 <div class="panel panel-default">  
 	<div class="panel-heading">
-		<h1><%= wine_name %></h1>
+		<h1><%= wine_name %>
+
+</br>
+		<%= @wine.category %>
+
+		</h1>
 	 </div>
 	  <div class="panel-body">
 	  	<table class="table table-hover table-responsive">
@@ -37,7 +42,7 @@
 	  			</tr>
 					<% @wine.comments.each do |comment| %>
 					<tr>
-						<td class="description">
+						<td colspan="2" class="description">
 	  					"<%= comment.content %>"
 	  					<br>
 	  					Posted by - <%= comment.user.name %> on <%= comment.created_at.strftime("%b/%e/%y") %>.
