@@ -7,9 +7,22 @@
 
 		<%= render 'shared/error_messages', object: f.object %>
 
+			
+				
 			<%= f.label :category %>
-			<%= f.text_field :category %>
-
+			<%= f.select :category, ['Champagne and Sparkling Wine',
+															 'Burgundy, White', 'Burgundy, Red', 
+															 'Bordeaux, Red', 'Proprietary Blends',
+															 'Spain', 'Pinot Noir', 'Cabernet Sauvignon',
+															 'Zinfandel', 'Merlot', 'Syrah', 'Rhone',
+															 'Loire', 'Chardonnay', 'Sauvignon Blanc', 
+															 'Interesting Whites', 'Interesting Reds',
+															 'Italy, White', 'Italy, Red',
+															 'Australia/New Zealand, Whites',
+															 'Australia/New Zealand, Reds', 'Chile / Argentina',
+															 'Half Bottles, Champagne and Sparkling',
+															 'Half Bottles, White', 'Half Bottles, Red'] %>
+			
 			<%= f.label :producer %>
 			<%= f.text_field :producer %>
 

@@ -68,7 +68,7 @@ class WinesController < ApplicationController
   end
 
   def spain
-  	@wines = Wine.order("price").order("price").where category: "Spain"
+  	@wines = Wine.order("price").where category: "Spain"
   end
 
   def pinotnoir

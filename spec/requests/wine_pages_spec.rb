@@ -233,11 +233,16 @@ describe "Views" do
           fill_in "Vintage",      with: 2001
           fill_in "Description",  with: "Tasty"
           fill_in "Price",        with: 150
-          fill_in "Category",     with: "Spain"
+          select "Spain",         from: "Category"
         end
 
         it "should create a wine" do
           expect { click_button submit }.to change(Wine, :count).by(1)
+        end
+
+        it "should appear in the right category view" do
+          visit spain_path
+          page { should have_content("Joe's Wine") }
         end
       end
     end
