@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to wine_path(@wine)
   	else
   		flash[:danger] = "There were errors with your submission"
-      render 'wines/show'
+      redirect_to wine_path(@wine)
   	end
   end
 
